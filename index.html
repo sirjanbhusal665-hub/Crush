@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crush ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      padding: 20px;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .heart {
+      font-size: 55px;
+    }
+
+    h1 {
+      color: #ff477e;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #555;
+      font-size: 17px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ffd0dc;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+      margin-top: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #ff477e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff477e;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <div class="heart">❤️</div>
+
+    <h1>Secret Crush</h1>
+
+    <p>Who is the person you secretly like? 👀</p>
+
+    <input
+      id="crushName"
+      type="text"
+      placeholder="Enter their name..."
+      autocomplete="off"
+    >
+
+    <button onclick="reveal()">Continue ❤️</button>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script>
+    function reveal() {
+      const input = document.getElementById("crushName");
+      const name = input.value.trim();
+      const result = document.getElementById("result");
+
+      if (name === "") {
+        result.innerHTML = "Brooo 😭 You forgot the name!";
+        return;
+      }
+
+      result.innerHTML =
+        "👀 Soooo...<br><br>" +
+        "Your secret crush is <b>" +
+        escapeHTML(name) +
+        "</b> ❤️<br><br>" +
+        "😂 You got caught!";
+    }
+
+    function escapeHTML(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+
+</body>
+</html>
